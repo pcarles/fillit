@@ -1,0 +1,6 @@
+fillit
+obj/
+*.swp
+*.swo
+.DS_Store
+*.fillit

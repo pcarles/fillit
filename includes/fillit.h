@@ -6,7 +6,7 @@
 /*   By: pcarles <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/16 17:27:56 by pcarles           #+#    #+#             */
-/*   Updated: 2017/11/22 10:22:36 by pcarles          ###   ########.fr       */
+/*   Updated: 2017/11/22 14:36:17 by pcarles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include <stdint.h>
+# include <stdio.h>
 
 # define CHAR_EMPTY		'.'
 # define CHAR_BLOCK		'#'
@@ -40,5 +41,6 @@ void				return_error(char *msg);
 void				return_usage(void);
 char				*put_in_buf(char *file_path);
 t_tetri				*parse(char *buf);
+int					check(t_tetri *lst);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: pcarles <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/16 17:16:50 by pcarles           #+#    #+#              #
-#    Updated: 2017/11/20 14:41:55 by pcarles          ###   ########.fr        #
+#    Updated: 2017/11/22 14:18:29 by pcarles          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,8 @@ HDRS = $(INCDIR)fillit.h
 SRC = main.c \
 	  utils.c \
 	  parsing.c \
-	  readfile.c
+	  readfile.c \
+	  check.c
 
 OBJ = $(SRC:$(SRCDIR)%.c=$(OBJDIR)%.o)
 

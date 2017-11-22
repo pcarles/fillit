@@ -6,7 +6,7 @@
 /*   By: pcarles <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/18 15:04:42 by pcarles           #+#    #+#             */
-/*   Updated: 2017/11/22 12:16:23 by pcarles          ###   ########.fr       */
+/*   Updated: 2017/11/22 16:47:31 by pcarles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static uint16_t	top_left(uint16_t shape)
 {
-	while ((shape & 0xF000) == 0)
+	while ((shape & 0xf000) == 0)
 		shape = shape << 4;
 	while ((shape & 0x8888) == 0)
 		shape = shape << 1;

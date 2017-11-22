@@ -6,7 +6,7 @@
 /*   By: pcarles <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/22 10:25:58 by pcarles           #+#    #+#             */
-/*   Updated: 2017/11/22 16:16:59 by pcarles          ###   ########.fr       */
+/*   Updated: 2017/11/22 16:25:08 by pcarles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ int			check(t_tetri *lst)
 {
 	while (lst)
 	{
-		if(!(is_valid(lst->shape)))
-			return (0);
+		if (!(is_valid(lst->shape)))
+			return_error("bad tetrmino fdp");
 		lst = lst->next;
 	}
 	return (1);

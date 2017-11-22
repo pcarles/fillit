@@ -6,7 +6,7 @@
 /*   By: pcarles <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/14 13:57:36 by pcarles           #+#    #+#             */
-/*   Updated: 2017/11/14 14:22:06 by pcarles          ###   ########.fr       */
+/*   Updated: 2017/11/22 09:15:28 by pcarles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int		ft_pow(int n, unsigned int pow)
 	int	res;
 
 	res = n;
+	if (pow == 0)
+		return (1);
 	pow--;
 	while (pow--)
 		res *= n;

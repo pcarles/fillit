@@ -6,40 +6,48 @@
 /*   By: pcarles <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/18 15:04:42 by pcarles           #+#    #+#             */
-/*   Updated: 2017/11/20 15:59:09 by pcarles          ###   ########.fr       */
+/*   Updated: 2017/11/22 10:17:44 by pcarles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-static char		*new_shape(char *shape)
+static uint16_t	top_left(uint16_t shape)
 {
-	char	*new;
-	int		i;
-	int		j;
-
-	i = 0;
-	j = 0;
-	if (!(new = ft_strnew(TETRI_WIDTH * TETRI_HEIGHT)))
-		return_error("malloc failed ԅ(≖‿≖ԅ)");
-	while (i < TETRI_SIZE)
-	{
-		new[j] = shape[i];
-		i++;
-		j++;
-		if (shape[i] == '\n')
-			i++;
-	}
-	return (new);
+	while ((shape & 0xF000) == 0)
+		shape = shape << 4;
+	while ((shape & 0x8888) == 0)
+		shape = shape << 1;
+	return (shape);
 }
 
-static t_tetri	*new_tetri(char *shape, char c, t_tetri *next)
+static uint16_t	new_shape(char *shape)
+{
+	uint16_t	res;
+	int			i;
+	int			j;
+
+	res = 0;
+	i = 0;
+	j = TETRI_SIZE - 2;
+	while (j >= 0)
+	{
+		if (shape[j] == CHAR_BLOCK)
+			res += ft_pow(2, i);
+		if (shape[j] != '\n')
+			i++;
+		j--;
+	}
+	return (top_left(res));
+}
+
+static t_tetri	*new_tetri(char *shape, int index, t_tetri *next)
 {
 	t_tetri	*new;
 
 	if (!(new = ft_memalloc(sizeof(*new))))
 		return_error("malloc failed ԅ(≖‿≖ԅ)");
-	new->character = c;
+	new->tetri_index = index;
 	new->shape = new_shape(shape);
 	new->next = next;
 	return (new);
@@ -84,7 +92,7 @@ t_tetri			*parse(char *buf)
 	{
 		if (check_tetri(buf))
 		{
-			new = new_tetri(buf, i + 'A', new);
+			new = new_tetri(buf, i, new);
 			buf += TETRI_SIZE + 1;
 			i++;
 		}

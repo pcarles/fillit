@@ -6,18 +6,19 @@
 /*   By: pcarles <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/16 17:43:30 by pcarles           #+#    #+#             */
-/*   Updated: 2017/11/20 15:59:27 by pcarles          ###   ########.fr       */
+/*   Updated: 2017/11/22 10:16:57 by pcarles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
+#include <stdio.h>
 
 static void	print(t_tetri *list)
 {
 	while (list)
 	{
-		ft_putchar(list->character);
-		ft_putendl(list->shape);
+		printf("%i: ", list->tetri_index);
+		printf("%x\n", list->shape);
 		list = list->next;
 	}
 }

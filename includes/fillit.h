@@ -6,7 +6,7 @@
 /*   By: pcarles <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/16 17:27:56 by pcarles           #+#    #+#             */
-/*   Updated: 2017/11/20 15:30:47 by pcarles          ###   ########.fr       */
+/*   Updated: 2017/11/22 10:22:36 by pcarles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
+# include <stdint.h>
 
 # define CHAR_EMPTY		'.'
 # define CHAR_BLOCK		'#'
@@ -29,8 +30,8 @@
 
 typedef struct		s_tetri
 {
-	char			*shape;
-	char			character;
+	uint16_t		shape;
+	int				tetri_index;
 	struct s_tetri	*next;
 }					t_tetri;
 

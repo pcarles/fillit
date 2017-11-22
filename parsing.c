@@ -6,7 +6,7 @@
 /*   By: pcarles <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/18 15:04:42 by pcarles           #+#    #+#             */
-/*   Updated: 2017/11/22 10:17:44 by pcarles          ###   ########.fr       */
+/*   Updated: 2017/11/22 12:16:23 by pcarles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,16 +41,23 @@ static uint16_t	new_shape(char *shape)
 	return (top_left(res));
 }
 
-static t_tetri	*new_tetri(char *shape, int index, t_tetri *next)
+static t_tetri	*new_tetri(char *shape, int index, t_tetri *tetri_lst)
 {
 	t_tetri	*new;
+	t_tetri *tmp;
 
+	tmp = tetri_lst;
 	if (!(new = ft_memalloc(sizeof(*new))))
 		return_error("malloc failed ԅ(≖‿≖ԅ)");
 	new->tetri_index = index;
 	new->shape = new_shape(shape);
-	new->next = next;
-	return (new);
+	new->next = NULL;
+	if (!tetri_lst)
+		return (new);
+	while (tmp->next)
+		tmp = tmp->next;
+	tmp->next = new;
+	return (tetri_lst);
 }
 
 static int		check_tetri(char *tetri)
@@ -86,8 +93,8 @@ t_tetri			*parse(char *buf)
 	int		i;
 	t_tetri	*new;
 
-	new = NULL;
 	i = 0;
+	new = NULL;
 	while (*buf)
 	{
 		if (check_tetri(buf))

@@ -6,7 +6,7 @@
 /*   By: pcarles <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/16 17:27:56 by pcarles           #+#    #+#             */
-/*   Updated: 2017/11/22 14:36:17 by pcarles          ###   ########.fr       */
+/*   Updated: 2017/11/23 10:39:49 by pcarles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,6 @@ void				return_error(char *msg);
 void				return_usage(void);
 char				*put_in_buf(char *file_path);
 t_tetri				*parse(char *buf);
-int					check(t_tetri *lst);
+void				check(t_tetri *lst);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: pcarles <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/16 17:43:30 by pcarles           #+#    #+#             */
-/*   Updated: 2017/11/22 14:33:47 by pcarles          ###   ########.fr       */
+/*   Updated: 2017/11/23 10:39:30 by pcarles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int			main(int ac, char **av)
 	if (ac != 2)
 		return_usage();
 	lol = parse(put_in_buf(av[1]));
+	check(lol);
 	print(lol);
-	printf("valide? %i\n", check(lol));
 	exit(EXIT_SUCCESS);
 }

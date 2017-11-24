@@ -4,3 +4,4 @@ obj/
 *.swo
 .DS_Store
 *.fillit
+*.a

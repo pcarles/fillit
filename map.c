@@ -6,11 +6,25 @@
 /*   By: pcarles <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/24 10:00:52 by pcarles           #+#    #+#             */
-/*   Updated: 2017/11/24 10:19:41 by pcarles          ###   ########.fr       */
+/*   Updated: 2017/11/24 11:52:23 by bjaudall         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
+
+static int	sqrt(int nb)
+{
+	int i;
+
+	i = 0;
+	while (i*i < nb)
+	{
+		if (i * i == nb)
+			return (i);
+		i++;
+	}
+	return (i);
+}
 
 static int	get_map_size(t_tetri *lst)
 {
@@ -23,7 +37,7 @@ static int	get_map_size(t_tetri *lst)
 		i++;
 	}
 	i *= 4;
-	return (i);
+	return (sqrt(i));
 }
 
 t_map	*init_map(t_tetri *lst)

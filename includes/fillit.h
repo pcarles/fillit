@@ -6,7 +6,7 @@
 /*   By: pcarles <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/16 17:27:56 by pcarles           #+#    #+#             */
-/*   Updated: 2017/11/24 10:09:56 by pcarles          ###   ########.fr       */
+/*   Updated: 2017/11/24 14:05:31 by pcarles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ typedef struct		s_tetri
 	int				tetri_index;
 	int				width;
 	int				height;
+	int				pos_x;
+	int				pos_y;
 	struct s_tetri	*next;
 }					t_tetri;
 
@@ -51,5 +53,6 @@ char				*put_in_buf(char *file_path);
 t_tetri				*parse(char *buf);
 void				check(t_tetri *lst);
 t_map				*init_map(t_tetri *lst);
+int					set(t_map *map, t_tetri *tetri);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: pcarles <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/18 15:04:42 by pcarles           #+#    #+#             */
-/*   Updated: 2017/11/24 09:40:38 by pcarles          ###   ########.fr       */
+/*   Updated: 2017/11/24 14:25:27 by pcarles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,8 @@ static t_tetri	*new_tetri(char *shape, int index, t_tetri *tetri_lst)
 	new->shape = new_shape(shape);
 	new->width = 0;
 	new->height = 0;
+	new->pos_x = 6;
+	new->pos_y = 6;
 	new->next = NULL;
 	if (!tetri_lst)
 		return (new);

@@ -6,7 +6,7 @@
 #    By: pcarles <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/16 17:16:50 by pcarles           #+#    #+#              #
-#    Updated: 2017/11/24 10:10:17 by pcarles          ###   ########.fr        #
+#    Updated: 2017/11/24 14:06:12 by pcarles          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,8 @@ SRC = main.c \
 	  parsing.c \
 	  readfile.c \
 	  check.c \
-	  map.c
+	  map.c \
+	  solve.c
 
 OBJ = $(SRC:$(SRCDIR)%.c=$(OBJDIR)%.o)
 

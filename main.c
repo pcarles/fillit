@@ -6,7 +6,7 @@
 /*   By: pcarles <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/16 17:43:30 by pcarles           #+#    #+#             */
-/*   Updated: 2017/11/24 11:56:28 by bjaudall         ###   ########.fr       */
+/*   Updated: 2017/11/24 14:04:48 by pcarles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,6 @@ int			main(int ac, char **av)
 	check(lol);
 	map = init_map(lol);
 	print(lol, map);
+	set(map, lol);
 	exit(EXIT_SUCCESS);
 }

@@ -1,38 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pcarles <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/16 17:43:30 by pcarles           #+#    #+#             */
-/*   Updated: 2017/11/24 10:12:33 by pcarles          ###   ########.fr       */
+/*   Created: 2017/11/24 10:00:52 by pcarles           #+#    #+#             */
+/*   Updated: 2017/11/24 10:19:41 by pcarles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-#include <stdio.h>
 
-static void	print(t_tetri *list)
+static int	get_map_size(t_tetri *lst)
 {
-	while (list)
+	int	i;
+
+	i = 0;
+	while (lst)
 	{
-		printf("%i: ", list->tetri_index);
-		printf("%x    width: %i  |  height: %i\n", list->shape, list->width, list->height);
-		list = list->next;
+		lst = lst->next;
+		i++;
 	}
+	i *= 4;
+	return (i);
 }
 
-int			main(int ac, char **av)
+t_map	*init_map(t_tetri *lst)
 {
-	t_tetri		*lol;
-	t_map		*map;
+	int		i;
+	t_map	*map;
 
-	if (ac != 2)
-		return_usage();
-	lol = parse(put_in_buf(av[1]));
-	check(lol);
-	map = init_map(lol);
-	print(lol);
-	exit(EXIT_SUCCESS);
+	i = 0;
+	if (!(map = ft_memalloc(sizeof(*map))))
+		return_error("malloc failed");
+	map->size = get_map_size(lst);
+	while (i < 16)
+	{
+		ft_bzero(&map->map[i], sizeof(map->map[0]));
+		i++;
+	}
+	return (map);
 }

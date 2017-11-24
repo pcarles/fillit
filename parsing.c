@@ -6,7 +6,7 @@
 /*   By: pcarles <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/18 15:04:42 by pcarles           #+#    #+#             */
-/*   Updated: 2017/11/22 16:47:31 by pcarles          ###   ########.fr       */
+/*   Updated: 2017/11/24 09:40:38 by pcarles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ static t_tetri	*new_tetri(char *shape, int index, t_tetri *tetri_lst)
 		return_error("malloc failed ԅ(≖‿≖ԅ)");
 	new->tetri_index = index;
 	new->shape = new_shape(shape);
+	new->width = 0;
+	new->height = 0;
 	new->next = NULL;
 	if (!tetri_lst)
 		return (new);

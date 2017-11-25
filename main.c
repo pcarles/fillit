@@ -6,24 +6,12 @@
 /*   By: pcarles <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/16 17:43:30 by pcarles           #+#    #+#             */
-/*   Updated: 2017/11/24 14:04:48 by pcarles          ###   ########.fr       */
+/*   Updated: 2017/11/25 18:23:09 by pcarles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 #include <stdio.h>
-
-
-static void	print(t_tetri *list, t_map *map)
-{
-	while (list)
-	{
-		printf("%i: ", list->tetri_index);
-		printf("%x    width: %i  |  height: %i\n", list->shape, list->width, list->height);
-		list = list->next;
-	}
-	printf("Taille de la map: %d\n", map->size);
-}
 
 int			main(int ac, char **av)
 {
@@ -35,7 +23,7 @@ int			main(int ac, char **av)
 	lol = parse(put_in_buf(av[1]));
 	check(lol);
 	map = init_map(lol);
-	print(lol, map);
+	print(lol, 5);
 	set(map, lol);
 	exit(EXIT_SUCCESS);
 }

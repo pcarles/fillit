@@ -6,7 +6,7 @@
 /*   By: pcarles <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/16 17:27:56 by pcarles           #+#    #+#             */
-/*   Updated: 2017/11/24 14:05:31 by pcarles          ###   ########.fr       */
+/*   Updated: 2017/11/25 16:41:45 by pcarles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,6 @@ t_tetri				*parse(char *buf);
 void				check(t_tetri *lst);
 t_map				*init_map(t_tetri *lst);
 int					set(t_map *map, t_tetri *tetri);
+void				print(t_tetri *lst, int size);
 
 #endif

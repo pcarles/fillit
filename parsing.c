@@ -38,7 +38,10 @@ static uint16_t	new_shape(char *shape)
 			i++;
 		j--;
 	}
-	return (top_left(res));
+	if (res)
+		return (top_left(res));
+	return_error("blank tetrimino");
+	return (0);
 }
 
 static t_tetri	*new_tetri(char *shape, int index, t_tetri *tetri_lst)

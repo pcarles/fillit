@@ -6,7 +6,7 @@
 #    By: pcarles <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/16 17:16:50 by pcarles           #+#    #+#              #
-#    Updated: 2017/11/25 16:42:24 by pcarles          ###   ########.fr        #
+#    Updated: 2017/11/27 16:05:13 by pcarles          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,17 +40,22 @@ OBJ = $(SRC:$(SRCDIR)%.c=$(OBJDIR)%.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	make -C $(LIBDIR) all
-	$(CC) -o $@ $(OBJ) -L$(LIBDIR) -l$(LIB)
+	@make -C $(LIBDIR) all
+	@$(CC) -o $@ $(OBJ) -L$(LIBDIR) -l$(LIB)
+	@echo "fillit created."
 
 $(OBJDIR)%.o: %.c $(HDRS)
 	@mkdir -p $(OBJDIR)
-	$(CC) -o $@ -c $< -I$(INCDIR) $(FLAGS)
+	@$(CC) -o $@ -c $< -I$(INCDIR) $(FLAGS)
 
 clean:
-	rm -rf $(OBJDIR)
+	@make -C $(LIBDIR) $@
+	@rm -rf $(OBJDIR)
+	@echo "fillit $(OBJDIR) deleted."
 
 fclean: clean
-	rm -f $(NAME)
+	@make -C $(LIBDIR) $@
+	@rm -f $(NAME)
 
 re: fclean all
+	@make -C $(LIBDIR) $@

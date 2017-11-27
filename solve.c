@@ -6,53 +6,57 @@
 /*   By: pcarles <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/24 11:32:53 by pcarles           #+#    #+#             */
-/*   Updated: 2017/11/24 15:27:44 by pcarles          ###   ########.fr       */
+/*   Updated: 2017/11/27 15:42:55 by pcarles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-static int	put_shape(uint16_t map, uint16_t tetri)
+static int	set(t_map *map, t_tetri *tetri, int index)
 {
-	if ((map && tetri) == 0)
-	{
-		map |= tetri;
+	uint16_t	mask;
+
+	mask = 0xf000;
+	mask >>= index * TETRI_WIDTH;
+	if (index == tetri->height)
 		return (1);
+	if (((tetri->pos_x + tetri->width) > map->size) || ((tetri->pos_y + tetri->height) > map->size))
+		return (0);
+	if (((((tetri->shape & mask) << (index * TETRI_HEIGHT)) >> tetri->pos_x) & map->map[tetri->pos_y + index]) != 0)
+		return (0);
+	else
+	{
+		if (set(map, tetri, index + 1))
+		{
+			map->map[tetri->pos_y + index] |= (((tetri->shape & mask) << (index * TETRI_HEIGHT)) >> tetri->pos_x);
+			return (1);
+		}
+		return (0);
 	}
-	return (0);
 }
 
-int			set(t_map *map, t_tetri *tetri)
+int		solve(t_map *map, t_tetri *tetri)
 {
-	int		index;
-	int		x;
-	int		y;
+	uint16_t	back[16];
 
-	if ((tetri->pos_x + tetri->width) > map->size)
-		return (0);
-	if ((tetri->pos_y + tetri->height) > map->size)
-		return (0);
-	index = tetri->pos_x / TETRI_WIDTH + (tetri->pos_y / TETRI_HEIGHT) * 4;
-	x = tetri->pos_x % TETRI_WIDTH;
-	y = tetri->pos_y % TETRI_HEIGHT;
-	if (x >= tetri->width && y < TETRI_HEIGHT)
+	ft_memcpy(back, map->map, (sizeof(uint16_t) * 16));
+	if (!tetri)
+		return (1);
+	while (tetri->pos_y + tetri->height <= map->size)
 	{
-		if (x == 4)
-			x = 0;
-		if (put_shape(map->map[index], (tetri->shape >>= x)))
-			if (put_shape(map->map[index + 1], (tetri->shape <<= x)))
-				return (1);
-		return (0);
+		while (tetri->pos_x + tetri->width <= map->size)
+		{
+			if (set(map, tetri, 0))
+			{
+				if (solve(map, tetri->next))
+					return (1);
+				else
+					ft_memcpy(map->map, back, (sizeof(uint16_t) * 16));
+			}
+			tetri->pos_x++;
+		}
+		tetri->pos_x = 0;
+		tetri->pos_y++;
 	}
-	else if (y >= tetri->height && x < TETRI_WIDTH)
-	{
-		if (put_shape(map->map[index], (tetri->shape >>= (y * 4))))
-			if (put_shape(map->map[index + 4], (tetri->shape <<= (y * 4))))
-				return (1);
-		return (0);
-	}
-	else
-		return (0);
-	printf("map index: %i\nx in index: %i\ny in index: %i\n", index, x, y);
 	return (0);
 }

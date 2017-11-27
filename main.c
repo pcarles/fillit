@@ -6,7 +6,7 @@
 /*   By: pcarles <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/16 17:43:30 by pcarles           #+#    #+#             */
-/*   Updated: 2017/11/25 18:23:09 by pcarles          ###   ########.fr       */
+/*   Updated: 2017/11/27 15:37:31 by pcarles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ int			main(int ac, char **av)
 	lol = parse(put_in_buf(av[1]));
 	check(lol);
 	map = init_map(lol);
-	print(lol, 5);
-	set(map, lol);
+	while (!solve(map, lol))
+		map->size++;
+	print(lol, map->size);
 	exit(EXIT_SUCCESS);
 }

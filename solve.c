@@ -6,7 +6,7 @@
 /*   By: pcarles <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/24 11:32:53 by pcarles           #+#    #+#             */
-/*   Updated: 2017/11/27 15:53:59 by pcarles          ###   ########.fr       */
+/*   Updated: 2017/11/27 18:07:03 by pcarles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ int			solve(t_map *map, t_tetri *tetri)
 	{
 		while (tetri->pos_x + tetri->width <= map->size)
 		{
+			reset_pos(tetri->next);
 			if (set(map, tetri, 0))
 			{
 				if (solve(map, tetri->next))

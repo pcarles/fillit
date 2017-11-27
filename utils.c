@@ -6,7 +6,7 @@
 /*   By: pcarles <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/18 14:58:10 by pcarles           #+#    #+#             */
-/*   Updated: 2017/11/27 15:54:36 by pcarles          ###   ########.fr       */
+/*   Updated: 2017/11/27 17:39:28 by pcarles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,14 @@ void	return_usage(void)
 {
 	ft_putendl_fd("usage: ./fillit fillit_file", 1);
 	exit(EXIT_FAILURE);
+}
+
+void	reset_pos(t_tetri *lst)
+{
+	while (lst)
+	{
+		lst->pos_x = 0;
+		lst->pos_y = 0;
+		lst = lst->next;
+	}
 }

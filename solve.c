@@ -6,7 +6,7 @@
 /*   By: pcarles <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/24 11:32:53 by pcarles           #+#    #+#             */
-/*   Updated: 2017/11/27 18:46:43 by pcarles          ###   ########.fr       */
+/*   Updated: 2017/11/27 18:51:09 by pcarles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,15 +20,18 @@ static int	set(t_map *map, t_tetri *tetri, int index)
 	mask >>= index * TETRI_WIDTH;
 	if (index == tetri->height)
 		return (1);
-	if (((tetri->pos_x + tetri->width) > map->size) || ((tetri->pos_y + tetri->height) > map->size))
+	if (((tetri->pos_x + tetri->width) > map->size) ||
+		((tetri->pos_y + tetri->height) > map->size))
 		return (0);
-	if (((((tetri->shape & mask) << (index * TETRI_HEIGHT)) >> tetri->pos_x) & map->map[tetri->pos_y + index]) != 0)
+	if (((((tetri->shape & mask) << (index * TETRI_HEIGHT)) >> tetri->pos_x) &
+		map->map[tetri->pos_y + index]) != 0)
 		return (0);
 	else
 	{
 		if (set(map, tetri, index + 1))
 		{
-			map->map[tetri->pos_y + index] |= (((tetri->shape & mask) << (index * TETRI_HEIGHT)) >> tetri->pos_x);
+			map->map[tetri->pos_y + index] |=
+			(((tetri->shape & mask) << (index * TETRI_HEIGHT)) >> tetri->pos_x);
 			return (1);
 		}
 		return (0);

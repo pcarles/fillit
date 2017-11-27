@@ -6,7 +6,7 @@
 /*   By: pcarles <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/24 10:00:52 by pcarles           #+#    #+#             */
-/*   Updated: 2017/11/24 11:52:23 by bjaudall         ###   ########.fr       */
+/*   Updated: 2017/11/27 15:53:36 by pcarles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int	sqrt(int nb)
 	int i;
 
 	i = 0;
-	while (i*i < nb)
+	while (i * i < nb)
 	{
 		if (i * i == nb)
 			return (i);
@@ -40,7 +40,7 @@ static int	get_map_size(t_tetri *lst)
 	return (sqrt(i));
 }
 
-t_map	*init_map(t_tetri *lst)
+t_map		*init_map(t_tetri *lst)
 {
 	int		i;
 	t_map	*map;

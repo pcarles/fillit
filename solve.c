@@ -6,7 +6,7 @@
 /*   By: pcarles <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/24 11:32:53 by pcarles           #+#    #+#             */
-/*   Updated: 2017/11/27 15:42:55 by pcarles          ###   ########.fr       */
+/*   Updated: 2017/11/27 15:53:59 by pcarles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static int	set(t_map *map, t_tetri *tetri, int index)
 	}
 }
 
-int		solve(t_map *map, t_tetri *tetri)
+int			solve(t_map *map, t_tetri *tetri)
 {
 	uint16_t	back[16];
 

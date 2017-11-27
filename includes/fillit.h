@@ -6,7 +6,7 @@
 /*   By: pcarles <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/16 17:27:56 by pcarles           #+#    #+#             */
-/*   Updated: 2017/11/27 15:47:06 by pcarles          ###   ########.fr       */
+/*   Updated: 2017/11/27 15:56:21 by pcarles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@
 # define TETRI_SIZE		((TETRI_WIDTH + 1) * TETRI_HEIGHT)
 # define TETRI_MAX		26
 # define MAXBUF_SIZE	((TETRI_SIZE + 1) * TETRI_MAX) - 1
-# define DEBUG 			0
+# define DEBUG 			1
 
 typedef struct		s_tetri
 {

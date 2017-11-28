@@ -6,23 +6,42 @@
 /*   By: pcarles <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/22 10:25:58 by pcarles           #+#    #+#             */
-/*   Updated: 2017/11/24 09:52:19 by pcarles          ###   ########.fr       */
+/*   Updated: 2017/11/28 11:19:09 by pcarles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
+const uint16_t	g_pattern[19] = {
+	0xe800,
+	0x88c0,
+	0xe200,
+	0xc880,
+	0x4e00,
+	0xe400,
+	0xf000,
+	0x8888,
+	0x4c40,
+	0x8c80,
+	0xc600,
+	0x6c00,
+	0x4c80,
+	0x8c40,
+	0xcc00,
+	0xc440,
+	0x44c0,
+	0x2e00,
+	0x8e00
+};
+
 static int	is_valid(uint16_t shape)
 {
-	uint16_t	val[19] = {0xe800, 0x88c0, 0xe200, 0xc880, 0x4e00, 0xe400, \
-						0xf000, 0x8888, 0x4c40, 0x8c80, 0xc600, 0x6c00, \
-						0x4c80, 0x8c40, 0xcc00, 0xc440, 0x44c0, 0x2e00, 0x8e00};
 	int			i;
 
 	i = 0;
-	while ((shape ^ val[i]) != 0 && i <= 18)
+	while ((shape ^ g_pattern[i]) != 0 && i <= 18)
 		i++;
-	if ((shape ^ val[i]) == 0)
+	if ((shape ^ g_pattern[i]) == 0)
 		return (1);
 	return (0);
 }

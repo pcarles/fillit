@@ -6,7 +6,7 @@
 #    By: pcarles <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/07 15:41:57 by pcarles           #+#    #+#              #
-#    Updated: 2017/11/16 15:46:33 by pcarles          ###   ########.fr        #
+#    Updated: 2017/11/28 11:29:15 by pcarles          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -102,7 +102,7 @@ $(OBJDIR)%.o: $(SRCDIR)%.c $(HDRS)
 
 clean:
 	@rm -rf $(OBJDIR)
-	@echo "$(OBJDIR) deleted."
+	@echo "libft $(OBJDIR) deleted."
 
 fclean: clean
 	@rm -f $(NAME)

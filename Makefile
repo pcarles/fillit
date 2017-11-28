@@ -6,7 +6,7 @@
 #    By: pcarles <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/16 17:16:50 by pcarles           #+#    #+#              #
-#    Updated: 2017/11/27 18:57:51 by pcarles          ###   ########.fr        #
+#    Updated: 2017/11/28 11:28:20 by pcarles          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,14 +33,15 @@ SRC = main.c \
 	  check.c \
 	  map.c \
 	  solve.c \
-	  print.c
+	  print.c \
+	  free.c
 
 OBJ = $(SRC:$(SRCDIR)%.c=$(OBJDIR)%.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	@make -C $(LIBDIR) all
+	@$(MAKE) -C $(LIBDIR) all
 	@$(CC) -o $@ $(OBJ) -L$(LIBDIR) -l$(LIB)
 	@echo "fillit created."
 
@@ -49,13 +50,12 @@ $(OBJDIR)%.o: %.c $(HDRS)
 	@$(CC) -o $@ -c $< -I$(INCDIR) $(FLAGS)
 
 clean:
-	@make -C $(LIBDIR) $@
+	@$(MAKE) -C $(LIBDIR) $@
 	@rm -rf $(OBJDIR)
 	@echo "fillit $(OBJDIR) deleted."
 
 fclean: clean
-	@make -C $(LIBDIR) $@
+	@rm -f $(LIBDIR)libft.a
 	@rm -f $(NAME)
 
 re: fclean all
-	@make -C $(LIBDIR) $@

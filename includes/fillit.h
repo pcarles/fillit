@@ -6,7 +6,7 @@
 /*   By: pcarles <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/16 17:27:56 by pcarles           #+#    #+#             */
-/*   Updated: 2017/11/27 18:29:48 by pcarles          ###   ########.fr       */
+/*   Updated: 2017/11/28 10:57:29 by pcarles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,5 +56,6 @@ t_map				*init_map(t_tetri *lst);
 void				print(t_tetri *lst, int size);
 int					solve(t_map *map, t_tetri *tetri);
 void				reset_pos(t_tetri *lst);
+void				free_all(t_tetri *lst, t_map *map);
 
 #endif

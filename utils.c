@@ -6,7 +6,7 @@
 /*   By: pcarles <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/18 14:58:10 by pcarles           #+#    #+#             */
-/*   Updated: 2017/11/27 17:39:28 by pcarles          ###   ########.fr       */
+/*   Updated: 2017/11/28 11:36:05 by pcarles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,18 @@ void	return_error(char *msg)
 {
 	if (msg && DEBUG)
 	{
-		ft_putstr_fd("error: ", 1);
-		ft_putendl_fd(msg, 1);
+		ft_putstr("error: ");
+		ft_putendl(msg);
 	}
 	else
-		ft_putendl_fd("error", 1);
-	exit(EXIT_FAILURE);
+		ft_putendl("error");
+	exit(EXIT_SUCCESS);
 }
 
 void	return_usage(void)
 {
-	ft_putendl_fd("usage: ./fillit fillit_file", 1);
-	exit(EXIT_FAILURE);
+	ft_putendl("usage: ./fillit fillit_file");
+	exit(EXIT_SUCCESS);
 }
 
 void	reset_pos(t_tetri *lst)

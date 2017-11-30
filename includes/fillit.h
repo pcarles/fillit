@@ -6,7 +6,7 @@
 /*   By: pcarles <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/16 17:27:56 by pcarles           #+#    #+#             */
-/*   Updated: 2017/11/28 10:57:29 by pcarles          ###   ########.fr       */
+/*   Updated: 2017/11/30 12:14:24 by pcarles          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include <stdint.h>
-# include <stdio.h>
 
 # define CHAR_EMPTY		'.'
 # define CHAR_BLOCK		'#'
